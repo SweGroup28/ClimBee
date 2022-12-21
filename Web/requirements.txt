@@ -1,0 +1,11 @@
+asgiref==3.6.0
+Cython @ file:///buildstream-build
+Django==4.1.4
+Mako @ file:///buildstream-build
+Markdown @ file:///buildstream-build
+MarkupSafe @ file:///buildstream-build
+meson==0.63.3
+Pygments @ file:///buildstream-build
+python-decouple==3.6
+six @ file:///buildstream-build
+sqlparse==0.4.3
