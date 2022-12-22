@@ -7,6 +7,7 @@ TagManager:
   - Step
   - Concrete
   - Holdable
+  - Finito
   layers:
   - Default
   - TransparentFX

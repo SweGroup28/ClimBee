@@ -6,6 +6,8 @@ using System.IO;
 
 public class FileDataHandler
 {
+    public GameManagement GameManager;
+    
     private string _dataDirPath = "";
 
     private string _dataFileName = "";

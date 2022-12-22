@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3636941079003661846}
   - component: {fileID: 3636941079003661845}
   - component: {fileID: 3636941079003661844}
-  - component: {fileID: 7661021609542001769}
+  - component: {fileID: 2565823446934978497}
   - component: {fileID: -4773567602383054674}
   m_Layer: 3
   m_Name: Bomb
@@ -65,7 +65,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9310342d91aa5724a96a8dbfca2b457a, type: 2}
+  - {fileID: 2100000, guid: a42d57de7576aa545b99dc0d6ae8fe0f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -100,7 +100,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!54 &7661021609542001769
+--- !u!54 &2565823446934978497
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -108,14 +108,14 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3636941079003661835}
   serializedVersion: 2
-  m_Mass: 20
-  m_Drag: 1
-  m_AngularDrag: 5
-  m_UseGravity: 0
+  m_Mass: 5
+  m_Drag: 10
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 122
-  m_CollisionDetection: 1
+  m_CollisionDetection: 2
 --- !u!114 &-4773567602383054674
 MonoBehaviour:
   m_ObjectHideFlags: 0

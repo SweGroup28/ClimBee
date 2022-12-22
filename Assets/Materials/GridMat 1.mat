@@ -66,7 +66,7 @@ Material:
     - _Glossiness: 0
     - _GlossyReflections: 1
     - _GridSize: 12
-    - _LineSize: 0.02
+    - _LineSize: 0.717
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
@@ -80,9 +80,9 @@ Material:
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
-    - _CellColor: {r: 0.75, g: 0.8001202, b: 1, a: 1}
+    - _CellColor: {r: 1, g: 0.5517041, b: 0.41037738, a: 1}
     - _Color: {r: 0.935151, g: 0.9705882, b: 0.3282872, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _LineColor: {r: 0, g: 0, b: 0, a: 1}
+    - _LineColor: {r: 0.7735849, g: 0.22740814, b: 0, a: 1}
     - _SelectedColor: {r: 0, g: 0, b: 0, a: 1}
   m_BuildTextureStacks: []

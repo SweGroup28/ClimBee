@@ -80,9 +80,9 @@ Material:
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
-    - _CellColor: {r: 0.62169015, g: 0.6415094, b: 0.6142755, a: 1}
+    - _CellColor: {r: 0.5188679, g: 0.5188679, b: 0.5188679, a: 1}
     - _Color: {r: 0.935151, g: 0.9705882, b: 0.3282872, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _LineColor: {r: 0, g: 0, b: 0, a: 1}
+    - _LineColor: {r: 0.5188679, g: 0.5188679, b: 0.5188679, a: 1}
     - _SelectedColor: {r: 0, g: 0, b: 0, a: 1}
   m_BuildTextureStacks: []

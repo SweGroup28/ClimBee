@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -32,7 +33,14 @@ public class Pickaxe : MonoBehaviour
     {
         if (rotate)
         {
-            transform.Rotate(rotateSpeed * 100 * Time.deltaTime * Vector3.back);
+	        if (_cp)
+	        {
+		        transform.Rotate(rotateSpeed * 100 * Time.deltaTime * Vector3.back);
+	        }
+	        else
+	        {
+		        transform.Rotate(rotateSpeed * 50 * Time.deltaTime * Vector3.forward);
+	        }
         }
     }
     
@@ -46,19 +54,26 @@ public class Pickaxe : MonoBehaviour
 	    }
 	    else
 	    {
-		    transform.eulerAngles = new Vector3(0, 0, 0);
+		    transform.eulerAngles = new Vector3(0, 0, (_cp ? -15 : 15));
 		    GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
 		    if (collision.gameObject.CompareTag("Concrete") && collision.gameObject.name != "Concrete")
 		    {
 			    if(_cp) button.GetComponent<Button>().interactable = true;
 			    ChangeCollectable(collision.collider.gameObject.name);
-			    Destroy(collision.transform.Find("Feature").gameObject);
+			    try
+			    {
+				    Destroy(collision.transform.Find("Feature").gameObject);
+			    }
+			    catch (Exception e)
+			    {
+				    Debug.Log("No Destroyable Object " + e);
+			    }
 			    collision.gameObject.name = "Concrete";
 		    }
 		    if (hammerMode)
 		    {
 			    TransformPickaxe();
-			    Swing(collision.collider.gameObject);
+			    collision.collider.gameObject.transform.position += (_cp ? Vector3.right : Vector3.left) * 1.1f;
 			    if(_cp) button.ChangeIcon("Empty");
 		    }
 	    }
@@ -83,7 +98,6 @@ public class Pickaxe : MonoBehaviour
     {
         character.GetComponent<Rigidbody>().velocity = Vector3.zero;
         _step.transform.position = transform.position - new Vector3(0.2f,0.7f,-0.2f);
-        //_step.SetActive(true);
     }
 
     private void TransformPickaxe()
@@ -91,11 +105,5 @@ public class Pickaxe : MonoBehaviour
 	    hammerMode = false;
 	    transform.Find("Top").localScale = new Vector3(0.3f, 0.07f, 0.05f);
         GetComponentInChildren<MeshRenderer>().material = pickaxeMaterial;
-    }
-    
-    private void Swing(GameObject go)
-    {
-        go.transform.position += (_cp ? Vector3.right : Vector3.left) * 1.1f;
-        go.GetComponent<Rigidbody>().useGravity = true;
     }
 }
