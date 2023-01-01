@@ -2771,6 +2771,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 442574369}
     m_Modifications:
     - target: {fileID: 1019688446547759752, guid: bb90bfded76428e4c9ad32bdb34407fa, type: 3}
+      propertyPath: m_Color.a
+      value: 0.78431374
+      objectReference: {fileID: 0}
+    - target: {fileID: 1019688446547759752, guid: bb90bfded76428e4c9ad32bdb34407fa, type: 3}
       propertyPath: m_Color.b
       value: 0
       objectReference: {fileID: 0}
@@ -2999,16 +3003,24 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 1019688447002809112, guid: bb90bfded76428e4c9ad32bdb34407fa, type: 3}
-      propertyPath: m_Color.b
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1019688447002809112, guid: bb90bfded76428e4c9ad32bdb34407fa, type: 3}
+      propertyPath: m_Color.a
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1019688447002809112, guid: bb90bfded76428e4c9ad32bdb34407fa, type: 3}
+      propertyPath: m_Color.b
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1019688447002809112, guid: bb90bfded76428e4c9ad32bdb34407fa, type: 3}
       propertyPath: m_Color.g
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1019688447002809112, guid: bb90bfded76428e4c9ad32bdb34407fa, type: 3}
       propertyPath: m_Color.r
-      value: 0.9607844
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bb90bfded76428e4c9ad32bdb34407fa, type: 3}
@@ -3138,6 +3150,10 @@ PrefabInstance:
       propertyPath: pickaxe
       value: 
       objectReference: {fileID: 2100221750}
+    - target: {fileID: 5495657969290812196, guid: 87bff813cd9b2154091008703250eeb4, type: 3}
+      propertyPath: collectable
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 5495657969290812196, guid: 87bff813cd9b2154091008703250eeb4, type: 3}
       propertyPath: gameManager
       value: 

@@ -64,11 +64,8 @@ public class Controller : MonoBehaviour
             {
                 try
                 {
-                    if (bot.collectable.gameObject.name != "Hammer")
-                    {
-                        bot.collectable.Use(bot.gameObject);
-                    }
-                    DestroyImmediate(bot.collectable);
+                    bot.collectable.Use(bot.gameObject);
+                    Destroy(bot.collectable);
                 }
                 catch (Exception e)
                 {

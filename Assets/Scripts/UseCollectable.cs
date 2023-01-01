@@ -39,7 +39,7 @@ public class UseCollectable : MonoBehaviour
         else
         {
             _image.sprite = null;
-            _image.color = Color.red;
+            _image.color = new Color(1,1,1,0);
             GetComponent<Button>().interactable = false;
         }
     }

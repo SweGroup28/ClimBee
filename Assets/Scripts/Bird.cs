@@ -1,8 +1,10 @@
+using System;
 using UnityEngine;
 
 public class Bird : MonoBehaviour
 {
     private IBirdCollisionHandler m_CollisionHandler;
+    private Bird[] _birds;
 
     public IBirdCollisionHandler collisionHandler
     {
@@ -10,17 +12,21 @@ public class Bird : MonoBehaviour
         set => m_CollisionHandler = value;
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player"))
         {
-            var character = collision.gameObject.GetComponent<Character>();
+            var character = other.gameObject.GetComponent<Character>();
             if (!character.shieldActive)
             {
                 Debug.Log("Touched");
-                collision.gameObject.GetComponent<Character>().Fall(2f);
-                m_CollisionHandler.HandleBirdCollision();
-                Destroy(gameObject);
+                other.gameObject.GetComponent<Character>().Fall(2f);
+            }
+            m_CollisionHandler.HandleBirdCollision();
+            _birds = FindObjectsOfType<Bird>();
+            foreach (var bird in _birds)
+            {
+                Destroy(bird.gameObject);
             }
         }
     }

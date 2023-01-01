@@ -73,6 +73,7 @@ public class Pickaxe : MonoBehaviour
 		    if (hammerMode)
 		    {
 			    TransformPickaxe();
+			    Debug.Log("TOUCHED TO " + collision.collider.gameObject.name);
 			    collision.collider.gameObject.transform.position += (_cp ? Vector3.right : Vector3.left) * 1.1f;
 			    if(_cp) button.ChangeIcon("Empty");
 		    }

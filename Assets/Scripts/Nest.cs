@@ -1,4 +1,5 @@
 ﻿using System;
+using TMPro;
 using UnityEngine;
 
 public class Nest : CollectableBase, IBirdCollisionHandler
@@ -12,6 +13,7 @@ public class Nest : CollectableBase, IBirdCollisionHandler
     private Vector3[] _startPos;
     private Vector3 _endPos;
     private bool _fly;
+    private GameObject _target;
 
     public void HandleBirdCollision()
     {
@@ -23,6 +25,7 @@ public class Nest : CollectableBase, IBirdCollisionHandler
         _birds = new Bird[4];
         _startPos = new Vector3[4];
         _fly = false;
+        _target = character;
     }
 
     private void Update()
@@ -35,9 +38,11 @@ public class Nest : CollectableBase, IBirdCollisionHandler
 
     private void ReleaseBirds(string who)
     {
-        bool choose = who == "Character";
-        _pos = choose ? character.transform.position : bot.transform.position + Vector3.back + Vector3.right;
-        _endPos = choose ? bot.transform.position : character.transform.position;
+        var choose = who == "Character";
+        _target = choose ? bot : character;
+        var triggeredBy = choose ? character : bot;
+        _pos = triggeredBy.transform.position + Vector3.back + Vector3.right;
+        _endPos = _target.transform.position;
         for (var i = 0; i < 4; i++)
         {
             _startPos[i] = _pos + i * 0.2f * (choose ? Vector3.right : Vector3.left) + i * 0.5f * Vector3.up;
@@ -49,10 +54,12 @@ public class Nest : CollectableBase, IBirdCollisionHandler
     
     private void FlyTo()
     {
-        for (int i = 0; i < 4; i++)
+        _endPos = _target.transform.position;
+        for (var i = 0; i < 4; i++)
         {
-            _birds[i].transform.position = Vector3.MoveTowards(_startPos[i], _endPos, 0.01f);
+            _birds[i].transform.position = Vector3.MoveTowards(_startPos[i], _endPos, 0.02f);
             _startPos[i] = _birds[i].transform.position;
+            Destroy(_birds[i].gameObject, 5f);
         }
     }
     
