@@ -7,6 +7,7 @@ public class LoginScreen : MonoBehaviour
 {
     public TextMeshProUGUI username;
     public GameManagement gameManagement;
+    public GameObject panel;
 
     public void SubmitOnClick()
     {
@@ -15,7 +16,9 @@ public class LoginScreen : MonoBehaviour
 
     private IEnumerator HandleSubmitRequest()
     {
-        byte[] auth = System.Text.Encoding.UTF8.GetBytes(username.text);
+        var toSend = username.text;
+        byte[] auth = System.Text.Encoding.UTF8.GetBytes(toSend);
+        Debug.Log(toSend);
         const string url = "https://europe-west1-thermal-origin-372310.cloudfunctions.net/GetRequest";
         UnityWebRequest www = UnityWebRequest.Put(url, auth);
         yield return www.SendWebRequest();
@@ -28,20 +31,21 @@ public class LoginScreen : MonoBehaviour
         else
         {
             Debug.Log("cloud: " + www.downloadHandler.text);
-            string check = "Hello " + username.text + '!';
-            if (www.downloadHandler.text == check)
+            var user = www.downloadHandler.text.Split();
+            if (user[2] != "True")
             {
                 gameManagement.MainMenu();
             }
             else
             {
-                gameManagement.ViewLeaderBoard();
+                panel.SetActive(true);
+                Invoke(nameof(ClosePanel),2f);
             }
         }
     }
 
-    private void GetAnswer() 
+    private void ClosePanel()
     {
-        UnityWebRequest wwwAnswer = UnityWebRequest.Get("https://europe-west1-thermal-origin-372310.cloudfunctions.net/GetRequest");
+        panel.SetActive(false);
     }
 }
