@@ -9,7 +9,7 @@ public class GameManagement : MonoBehaviour, IDataPersistence
 {
     public bool gameHasEnded;
 
-    private string _currentLevelName;
+    public string currentLevelName;
 
     private int _max;
 
@@ -27,30 +27,29 @@ public class GameManagement : MonoBehaviour, IDataPersistence
     {
         gameHasEnded = false;
         _max = 2;
-        _currentLevelName = "LEVEL 01";
+        currentLevelName = "LEVEL 01";
     }
 
     public void MainMenu()
     {
-        _currentLevelName = SceneManager.GetActiveScene().name;
-        SceneManager.LoadSceneAsync(sceneBuildIndex: 0);
+        SceneManager.LoadSceneAsync(sceneBuildIndex: 1);
     }
 
     public void LoadData(GameData data)
     {
-        _currentLevelName = data.levelName;
-        _max = SceneManager.GetSceneByName(_currentLevelName).buildIndex;
+        currentLevelName = data.levelName;
+        _max = SceneManager.GetSceneByName(currentLevelName).buildIndex;
     }
 
     public void SaveData(ref GameData data)
     {
-        _currentLevelName = SceneManager.GetSceneByBuildIndex(_max).name;
-        data.levelName = _currentLevelName;
+        currentLevelName = SceneManager.GetSceneByBuildIndex(_max).name;
+        data.levelName = currentLevelName;
     }
     
     public void Go()
     {
-        SceneManager.LoadSceneAsync(_currentLevelName);
+        SceneManager.LoadSceneAsync(currentLevelName);
     }
     
     public void RestartScene()

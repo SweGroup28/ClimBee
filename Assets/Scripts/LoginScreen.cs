@@ -8,6 +8,7 @@ public class LoginScreen : MonoBehaviour
     public TextMeshProUGUI username;
     public GameManagement gameManagement;
     public GameObject panel;
+    public string highScore;
 
     public void SubmitOnClick()
     {
@@ -34,6 +35,8 @@ public class LoginScreen : MonoBehaviour
             var user = www.downloadHandler.text.Split();
             if (user[2] != "True")
             {
+                highScore = "Level 0" + user[1];
+                gameManagement.currentLevelName = highScore;
                 gameManagement.MainMenu();
             }
             else
