@@ -1,0 +1,17 @@
+AUTHORS
+LICENSE
+MANIFEST.in
+README.rst
+setup.cfg
+setup.py
+hasher/__init__.py
+hasher/app.py
+hasher/hashes.py
+hasher/main.py
+hasher.egg-info/PKG-INFO
+hasher.egg-info/SOURCES.txt
+hasher.egg-info/dependency_links.txt
+hasher.egg-info/entry_points.txt
+hasher.egg-info/top_level.txt
+hasher_test/__init__.py
+hasher_test/test_hasher.py

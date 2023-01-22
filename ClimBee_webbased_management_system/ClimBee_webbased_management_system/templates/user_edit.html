@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+{% block title %}Edit user{% endblock %}
+{% block content %}
+    <h1 class="title">Edit user</h1>
+
+    <form action="" method="post" name="user_edit">
+      <div class="field">
+        <label for="user_name" class="label">User Name</label>
+        <div class="control">
+            <input type="text" name="user_name" class="input" 
+            required="required" value="{{ values['user_name'] }}"/>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="high_score" class="label">High Score</label>
+        <div class="control">
+            <input type="number" name="high_score" class="input" 
+            value="{{ values['high_score'] }}"/>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="ban_status" class="label">Ban Status</label>
+        <div class="control">
+          <input type="number" name="ban_status" class="input" 
+          min="{{ min_status }}" max="{{ max_status }}" 
+          value="{{ values['ban_status'] }}"/>
+        </div>
+      </div>
+
+      <div class="field is-grouped">
+        <div class="control">
+          <button class="button is-primary is-small">Save</button>
+        </div>
+      </div>
+    </form>
+{% endblock %}
