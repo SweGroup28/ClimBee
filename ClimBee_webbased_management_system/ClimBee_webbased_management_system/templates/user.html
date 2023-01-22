@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+{% block title %}User{% endblock %}
+{% block content %}
+    <h1 class="title">User</h1>
+
+    <table class="table">
+      <tr>
+        <th>User Name:</th>
+        <td>{{ user.user_name }}</td>
+      </tr>
+      <tr>
+        <th>High Score:</th>
+        <td>{{ user.high_score }}</td>
+      </tr>
+      <tr>
+        <th>Ban Status:</th>
+        <td>{{ user.ban_status }}</td>
+      </tr>
+    </table>
+
+    {% if current_user.is_authenticated %}
+    <div class="field is-grouped">
+        <div class="control">
+          <a class="button is-primary is-outlined is-small"
+             href="{{ request.path }}/edit">Edit</a>
+        </div>
+    </div>
+    {% endif %}
+{% endblock %}

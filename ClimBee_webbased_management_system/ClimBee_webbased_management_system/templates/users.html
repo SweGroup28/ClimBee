@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+{% block title %}User list{% endblock %}
+{% block content %}
+    <h1 class="title">Users</h1>
+
+    {% if users %}
+    <form action="" method="post" name="user_list">
+      <table class="table is-striped is-fullwidth">
+        {% for user_key, user in users %}
+        <tr>
+          <td>
+            {% if current_user.is_admin %}
+            <label class="checkbox">
+              <input type="checkbox" name="movie_keys" value="{{ movie_key }}"/>
+            </label>
+            {% endif %}
+            <a href="{{ url_for('user_page', user_key=user_key) }}">
+              {{ user.user_name }}
+              -----
+              {{ user.high_score }}
+              -----
+              {{ user.ban_status }}
+            </a>
+          </td>
+        </tr>
+        {% endfor %}
+      </table>
+
+      {% if current_user.is_admin %}
+      <div class="field is-grouped">
+        <div class="control">
+          <button class="button is-danger is-small">Delete</button>
+        </div>
+      </div>
+      {% endif %}
+    </form>
+    {% endif %}
+{% endblock %}

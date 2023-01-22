@@ -1,0 +1,23 @@
+Metadata-Version: 1.1
+Name: hasher
+Version: 2.0.1
+Summary: Provide multiple hashing algorithms from a single code base
+Home-page: https://github.com/wfscheper/hasher.git
+Author: Walter Scheper
+Author-email: walter.scheper@gmail.com
+License: Apache Software License
+Description: Hasher
+        ======================================
+        
+        A single code base to run various hashing algorithms against files, modeled on
+        the GNU md5sum program.
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Information Technology
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Topic :: Utilities

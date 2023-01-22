@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>ClimBee User Management - {% block title %}{% endblock %}</title>
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css"/>
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}"/>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar" aria-label="main navigation">
+        <div class="navbar-brand">
+          <span class="navbar-item">
+            <a class="button is-link" href="{{ url_for('home_page') }}">Home</a>
+          </span>
+          {% if current_user.is_admin %}
+          <span class="navbar-item">
+            <a class="button is-link" href="{{ url_for('users_page') }}">List Users</a>
+          </span>
+          {% endif %}
+          <!-- {% if current_user.is_admin %}
+          <span class="navbar-item">
+            <a class="button is-link" href="{{ url_for('user_add_page') }}">Add user</a>
+          </span>
+          {% endif %} -->
+          <span class="navbar-item">
+            {% if not current_user.is_authenticated %}
+              <a class="button is-link" href="{{ url_for('login_page') }}">Log in</a>
+            {% else %}
+              {{ current_user.username }}
+              <a class="button is-link" href="{{ url_for('logout_page') }}">Log out</a>
+            {% endif %}
+          </span>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      {% for message in get_flashed_messages() %}
+      <div class="notification is-info">{{ message }}</div>
+      {% endfor %}
+
+      <section class="section">
+        <div class="content">
+          {% block content %}{% endblock %}
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="content">
+        <small>&copy; 2022, ClimBee</small>
+      </div>
+    </footer>
+  </body>
+</html>
